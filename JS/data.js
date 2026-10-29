@@ -187,44 +187,40 @@ const NEWS_BODY = [
 ];
 
 const GAMES = [
-  { id: 'cricket-clash', title: 'Cricket Clash', cat: 'Cricket', tag: 'HOT', img: 'IMG/games/cricket-clash.jpg', thumb: 'IMG/games/thumb-cricket.jpg', tagline: 'Real Cricket Action', players: '12.4K' },
-  { id: 'stadium-kings', title: 'Stadium Kings', cat: 'Cricket', tag: 'NEW', img: 'IMG/games/stadium-kings.jpg', thumb: 'IMG/games/stadium-kings.jpg', tagline: 'Build Your Team', players: '8.1K' },
-  { id: 'power-play', title: 'Power Play', cat: 'Cricket', tag: 'NEW', img: 'IMG/games/power-play.jpg', thumb: 'IMG/games/power-play.jpg', tagline: 'Fast. Fun. Rewarding.', players: '6.7K' },
-  { id: 'super-over', title: 'Super Over', cat: 'Cricket', tag: 'HOT', img: 'IMG/games/super-over.jpg', thumb: 'IMG/games/super-over.jpg', tagline: 'One Over. Big Thrill.', players: '15.2K' },
-  { id: 'roulette-royale', title: 'Roulette Royale', cat: 'Casino', tag: 'LIVE', img: 'IMG/games/thumb-roulette.jpg', thumb: 'IMG/games/thumb-roulette.jpg', tagline: 'Spin the royal wheel', players: '4.3K' },
-  { id: 'teen-patti', title: 'Teen Patti', cat: 'Cards', tag: 'HOT', img: 'IMG/games/thumb-teenpatti.jpg', thumb: 'IMG/games/thumb-teenpatti.jpg', tagline: 'The classic three-card game', players: '22.9K' },
-  { id: 'slots-bonanza', title: 'Slots Bonanza', cat: 'Slots', tag: 'NEW', img: 'IMG/games/thumb-slots.jpg', thumb: 'IMG/games/thumb-slots.jpg', tagline: 'Spin, match and win', players: '9.4K' },
-  { id: 'live-casino', title: 'Live Casino', cat: 'Live Casino', tag: 'LIVE', img: 'IMG/ads/right-tall.jpg', thumb: 'IMG/ads/right-tall.jpg', tagline: 'Real dealers, real time', players: '11.0K' },
-  { id: 'lucky-777', title: 'Lucky 777', cat: 'Slots', tag: 'HOT', img: 'IMG/ads/right-top.jpg', thumb: 'IMG/ads/right-top.jpg', tagline: 'Triple sevens jackpot', players: '7.2K' },
-  { id: 'andar-bahar', title: 'Andar Bahar', cat: 'Cards', tag: 'LIVE', img: 'IMG/games/thumb-teenpatti.jpg', thumb: 'IMG/games/thumb-teenpatti.jpg', tagline: 'Pick a side, beat the dealer', players: '13.5K' },
-  { id: 'lightning-roulette', title: 'Lightning Roulette', cat: 'Live Casino', tag: 'LIVE', img: 'IMG/games/thumb-roulette.jpg', thumb: 'IMG/games/thumb-roulette.jpg', tagline: 'Multipliers on every spin', players: '5.9K' },
-  { id: 'fruit-frenzy', title: 'Fruit Frenzy', cat: 'Slots', tag: 'NEW', img: 'IMG/games/thumb-slots.jpg', thumb: 'IMG/games/thumb-slots.jpg', tagline: 'Juicy wins on every reel', players: '3.8K' }
+  { id: 'cricket-clash', title: 'Cricket Clash', cat: 'Cricket', tag: 'HOT', img: 'IMG/games/1.png', thumb: 'IMG/games/1.png', tagline: 'Real Cricket Action', players: '12.4K' },
+  { id: 'football-clash', title: 'Football Clash', cat: 'Football', tag: 'HOT', img: 'IMG/games/2.png', thumb: 'IMG/games/2.png', tagline: 'Score the Winning Goal', players: '10.8K' },
+  { id: 'basketball-clash', title: 'Basketball Clash', cat: 'Basketball', tag: 'NEW', img: 'IMG/games/3.png', thumb: 'IMG/games/3.png', tagline: 'Dunk. Shoot. Win.', players: '7.3K' },
+  { id: 'game-clash', title: 'Game Clash', cat: 'Esports', tag: 'NEW', img: 'IMG/games/4.png', thumb: 'IMG/games/4.png', tagline: 'Play. Compete. Win.', players: '9.1K' },
+  { id: 'india-clash', title: 'Cricket Clash: India', cat: 'Cricket', tag: 'HOT', img: 'IMG/games/5.png', thumb: 'IMG/games/5.png', tagline: 'Bat for Team India', players: '15.2K' },
+  { id: 'cricket-quiz', title: 'Cricket Quiz', cat: 'Quiz', tag: 'NEW', img: 'IMG/news/featured.jpg', thumb: 'IMG/news/featured.jpg', tagline: 'Test your cricket knowledge', players: '5.6K' }
 ];
-const GAME_CATS = ['All', 'Cricket', 'Casino', 'Live Casino', 'Slots', 'Cards'];
+const GAME_CATS = ['All', 'Cricket', 'Football', 'Basketball', 'Esports', 'Quiz'];
 
 /* Promotion slides. Image-only ads use `img`; text overlays use title/sub on top of game art */
 const ADS = {
+  /* 280×690 tall banners: left sidebar and right sidebar bottom */
   tall: [
-    { img: 'IMG/ads/left-tall.jpg', alt: 'MY99 EXCH – Big wins, bigger dreams. Play now', href: 'games.html' },
-    { img: 'IMG/ads/right-tall.jpg', alt: 'MY99 EXCH – Play live casino and win big', href: 'game-detail.html?id=live-casino' },
-    { img: 'IMG/games/super-over.jpg', title: 'Super Over', sub: 'One over. Big thrill.', href: 'game-detail.html?id=super-over' }
+    { img: 'IMG/ads/1.png', alt: 'MY99 EXCH – Big wins, bigger dreams. Play now', href: 'games.html' },
+    { img: 'IMG/ads/2.png', alt: 'MY99 EXCH – View score. Live, fast, all sports', href: 'matches.html' },
+    { img: 'IMG/ads/3.png', alt: 'MY99 EXCH – View score. Your game, your score', href: 'matches.html' }
   ],
   tall2: [
-    { img: 'IMG/ads/right-tall.jpg', alt: 'MY99 EXCH – Play live casino and win big', href: 'game-detail.html?id=live-casino' },
-    { img: 'IMG/ads/left-tall.jpg', alt: 'MY99 EXCH – Big wins, bigger dreams. Play now', href: 'games.html' },
-    { img: 'IMG/games/stadium-kings.jpg', title: 'Stadium Kings', sub: 'Build your dream XI', href: 'game-detail.html?id=stadium-kings' }
+    { img: 'IMG/ads/2.png', alt: 'MY99 EXCH – View score. Live, fast, all sports', href: 'matches.html' },
+    { img: 'IMG/ads/3.png', alt: 'MY99 EXCH – View score. Your game, your score', href: 'matches.html' },
+    { img: 'IMG/ads/1.png', alt: 'MY99 EXCH – Big wins, bigger dreams. Play now', href: 'games.html' }
   ],
+  /* 220×300 box banners: right sidebar top, mobile promos, carousel promo card */
   box: [
-    { img: 'IMG/ads/right-top.jpg', alt: 'MY99 EXCH – Casino, slots and live games. Play now', href: 'games.html?cat=Casino' },
-    { img: 'IMG/games/power-play.jpg', title: 'Power Play', sub: 'Fast. Fun. Rewarding.', href: 'game-detail.html?id=power-play' },
-    { img: 'IMG/games/cricket-clash.jpg', title: 'Cricket Clash', sub: 'Real cricket action', href: 'game-detail.html?id=cricket-clash' }
+    { img: 'IMG/ads/l1.png', alt: 'MY99 EXCH – Play cricket games. Play now', href: 'games.html?cat=Cricket' },
+    { img: 'IMG/ads/l2.png', alt: 'MY99 EXCH – Play football games. Play now', href: 'games.html?cat=Football' },
+    { img: 'IMG/ads/l3.png', alt: 'MY99 EXCH – Play badminton games. Play now', href: 'games.html' }
   ],
+  /* 1200×200 wide banners: home strip slider */
   strip: [
-    { img: 'IMG/ads/strip.jpg', alt: 'Exciting games. Bigger rewards. Play now', href: 'games.html', pos: 'object-left' },
-    { img: 'IMG/games/super-over.jpg', title: 'Super Over is live', sub: 'One over. Big thrill. Claim your welcome bonus.', href: 'game-detail.html?id=super-over' },
-    { img: 'IMG/ads/right-top.jpg', title: 'Casino • Slots • Live Games', sub: 'Hundreds of games, one account.', href: 'games.html' }
-  ],
-  card: { img: 'IMG/ads/card-promo.jpg', alt: 'MY99 EXCH – Play cricket games. Play now', href: 'games.html?cat=Cricket' }
+    { img: 'IMG/ads/s1.png', alt: 'MY99 EXCH Sportsbook – all sports', href: 'matches.html' },
+    { img: 'IMG/ads/s2.png', alt: 'MY99 EXCH Cricket Sportsbook', href: 'matches.html?cat=International' },
+    { img: 'IMG/ads/s3.png', alt: 'MY99 EXCH Badminton Sportsbook', href: 'matches.html' }
+  ]
 };
 
 const TABLES = {

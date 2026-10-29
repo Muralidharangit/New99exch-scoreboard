@@ -23,7 +23,7 @@ const notStarted = () => `<div class="p-10 text-center"><p class="font-display t
 
 /* ---------- Header + score hero ---------- */
 function hero() {
-  if (!started) return `<div class="bg-gradient-to-br from-navy-700 to-navy-900 text-white rounded-xl p-6 grid md:grid-cols-[1fr_260px] gap-6 items-center">
+  if (!started) return `<div class="bg-gradient-to-br from-navy-700 to-navy-900 text-white rounded-xl p-6 grid md:grid-cols-[1fr_150px] lg:grid-cols-[1fr_170px] gap-6 items-center">
     <div><div class="flex items-center gap-4 md:gap-6">
       <div class="text-center">${flag(m.teams[0], 'w-14 h-14')}<p class="font-display font-bold text-xl mt-2">${teamShort(m.teams[0])}</p></div>
       <span class="font-display text-2xl text-white/50">VS</span>
@@ -37,7 +37,7 @@ function hero() {
   const ballsLeft = chasing ? (m.format === 'T20' ? 120 : 300) - cur.balls : 0;
   const rates = [`CRR: <b class="text-white">${runRate(cur.score, cur.balls)}</b>`];
   if (chasing) rates.push(`REQ: <b class="text-white">${runRate(need, ballsLeft)}</b>`, `Target: <b class="text-white">${inns[0].score + 1}</b>`);
-  return `<div class="bg-gradient-to-br from-navy-700 to-navy-900 text-white rounded-xl p-5 md:p-6 grid md:grid-cols-[1fr_260px] gap-6 items-center relative overflow-hidden">
+  return `<div class="bg-gradient-to-br from-navy-700 to-navy-900 text-white rounded-xl p-5 md:p-6 grid md:grid-cols-[1fr_150px] lg:grid-cols-[1fr_170px] gap-6 items-center relative overflow-hidden">
     <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-brand-500/20 blur-3xl" aria-hidden="true"></div>
     <div class="relative">
       <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm text-white/80">${prev}</div>
@@ -50,7 +50,7 @@ function hero() {
     ${sponsor()}</div>`;
 }
 const sponsor = () => `<a href="games.html" class="relative hidden md:block rounded-lg overflow-hidden ring-1 ring-white/10 hover:ring-gold-500 transition">
-  <img src="IMG/ads/right-top.jpg" alt="MY99 EXCH – Casino, slots and live games" class="w-full aspect-[300/204] object-cover" loading="lazy">
+  <img src="IMG/ads/l1.png" alt="MY99 EXCH – Play cricket games" class="w-full aspect-[22/30] object-cover" loading="lazy">
   <span class="absolute top-1.5 left-1.5 text-[9px] uppercase tracking-wider bg-black/50 text-white/80 px-1.5 rounded">Sponsored</span></a>`;
 
 /* ---------- Live panel ---------- */

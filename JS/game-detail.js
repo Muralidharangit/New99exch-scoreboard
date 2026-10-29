@@ -3,11 +3,11 @@
 const g = GAMES.find(x => x.id === qs('id')) || GAMES[0];
 document.title = `${g.title} – Play Online | MY99 EXCH`;
 const ABOUT = {
-  Cricket: ['Pick your batting style, read the bowler and time your shots to build the biggest score before the overs run out.', ['Choose a match mode and your team.', 'Swipe or tap to play each delivery.', 'Hit boundaries to build multipliers.', 'Finish on top of the leaderboard to win rewards.']],
-  Casino: ['A premium table game with smooth animations and live statistics for every round.', ['Pick your chip value.', 'Place your selections on the table.', 'Watch the round play out.', 'Winnings are credited instantly.']],
-  'Live Casino': ['Real dealers streamed in HD, with chat and multiple camera angles for the full casino feel.', ['Join an open table.', 'Place your selections before the timer ends.', 'Follow the dealer live.', 'Results settle automatically.']],
-  Slots: ['Colourful reels, bonus rounds and free spins packed into a quick, mobile-friendly slot.', ['Set your spin value.', 'Tap spin or use auto-play.', 'Match symbols across paylines.', 'Trigger bonus rounds for extra rewards.']],
-  Cards: ['The classic card game, rebuilt for fast rounds and a clean mobile layout.', ['Join a table that suits you.', 'Receive your cards.', 'Decide to play or fold.', 'Best hand wins the round.']]
+  Cricket: ['Pick your batting style, read the bowler and time your shots to build the biggest score before the overs run out.', ['Choose a match mode and your team.', 'Swipe or tap to play each delivery.', 'Hit boundaries to build your score.', 'Beat your best and climb the leaderboard.']],
+  Football: ['Take control of your striker, beat the keeper and score the goals that win the match.', ['Pick your team and kit.', 'Aim with a swipe and set the power.', 'Curl it past the keeper.', 'Win the shoot-out to move up a league.']],
+  Basketball: ['Shoot, dunk and drain three-pointers against the clock.', ['Pick your court and player.', 'Hold to set the shot power.', 'Release at the top of the jump.', 'Chain baskets for combo points.']],
+  Esports: ['Quick head-to-head battles built for short sessions on any device.', ['Pick a game mode.', 'Join a match with other players.', 'Complete challenges to earn points.', 'Climb the weekly leaderboard.']],
+  Quiz: ['Test what you know about players, records and famous matches.', ['Pick a quiz category.', 'Answer before the timer runs out.', 'Earn streak points for correct answers.', 'Share your score with friends.']]
 };
 const [desc, steps] = ABOUT[g.cat];
 const related = GAMES.filter(x => x.id !== g.id).sort((a, b) => (b.cat === g.cat) - (a.cat === g.cat)).slice(0, 4);
@@ -17,7 +17,7 @@ $('#content').innerHTML = `
   <div class="relative rounded-xl overflow-hidden shadow-card bg-navy-900">
     <img src="${g.img}" alt="" class="absolute inset-0 w-full h-full object-cover opacity-40 blur-sm scale-110">
     <div class="relative grid md:grid-cols-[280px_1fr] gap-6 p-5 md:p-8 items-center">
-      <img src="${g.img}" alt="${g.title}" class="w-full aspect-square object-cover rounded-xl shadow-glow ring-2 ring-gold-500/60">
+      <img src="${g.img}" alt="${g.title}" class="w-full aspect-[7/6] object-cover rounded-xl shadow-glow ring-2 ring-gold-500/60">
       <div class="text-white">
         <span class="rounded px-2 py-0.5 text-[11px] font-bold bg-gold-500 text-navy-900">${g.tag}</span>
         <h1 class="font-display text-4xl md:text-5xl font-bold mt-2 leading-none">${g.title}</h1>
@@ -38,4 +38,4 @@ $('#content').innerHTML = `
   ${card(`${sectionHead('Related Games', 'games.html')}<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 px-4 pb-4">${related.map(r => `<a href="game-detail.html?id=${r.id}" class="group rounded-xl overflow-hidden bg-navy-900 shadow-card">
     <span class="block aspect-square overflow-hidden"><img src="${r.img}" alt="" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" loading="lazy"></span>
     <span class="block p-3 text-white"><b class="font-display text-lg">${r.title}</b><span class="block text-xs text-white/60">${r.cat}</span></span></a>`).join('')}</div>`)}
-  <p class="text-xs text-slate-400 text-center">18+ only. Please play responsibly. <a class="underline" href="page.html?p=responsible">Responsible Gaming</a></p>`;
+`;

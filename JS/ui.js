@@ -23,7 +23,6 @@ const ICON = {
   trophy: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4v2a3 3 0 0 0 3 3M17 6h3v2a3 3 0 0 1-3 3"/></svg>',
   game: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15.5 12h.01M18 13.5h.01"/></svg>',
   news: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg>',
-  gift: '<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8M12 8v12M12 8S10.5 3 8 4s0 4 4 4zm0 0s1.5-5 4-4 0 4-4 4z"/></svg>'
 };
 
 function flag(code, size = 'w-6 h-6') {
@@ -89,7 +88,7 @@ function initRotators(root = document) {
   });
 }
 /* full-width promo slot shown between sections on phones only */
-const mobilePromo = () => `<div class="md:hidden">${rotator(ADS.box, 'aspect-[300/204]', 'Sponsored')}</div>`;
+const mobilePromo = () => `<div class="md:hidden max-w-[300px] w-full mx-auto">${rotator(ADS.box, 'aspect-[22/30]', 'Sponsored')}</div>`;
 
 /* ---------- Accessible tabs ---------- */
 function initTabs(root, onChange) {
@@ -181,7 +180,7 @@ const NAV = [
   { label: 'Teams', items: ['IND', 'AUS', 'ENG', 'PAK', 'SA', 'NZ', 'BAN', 'WI', 'SL', 'AFG'].map(c => [TEAMS[c].name, `matches.html?team=${c}&tab=Recent`]) },
   { label: 'Games', page: 'games', items: GAME_CATS.map(c => [c === 'All' ? 'All Games' : c, c === 'All' ? 'games.html' : `games.html?cat=${encodeURIComponent(c)}`]) },
   { label: 'Rankings', items: [['Test Rankings', 'page.html?p=rankings#Test'], ['ODI Rankings', 'page.html?p=rankings#ODI'], ['T20I Rankings', 'page.html?p=rankings#T20']] },
-  { label: 'More', items: [['About Us', 'page.html?p=about'], ['Contact', 'page.html?p=contact'], ['Responsible Gaming', 'page.html?p=responsible'], ['Terms', 'page.html?p=terms'], ['Privacy', 'page.html?p=privacy']] }
+  { label: 'More', items: [['About Us', 'page.html?p=about'], ['Contact', 'page.html?p=contact'], ['Terms', 'page.html?p=terms'], ['Privacy', 'page.html?p=privacy']] }
 ];
 
 function renderHeader() {
@@ -255,7 +254,7 @@ function renderHeader() {
 function renderSidebars() {
   const left = $('#left-sidebar');
   if (left) left.innerHTML = `<div class="sticky top-28">
-    ${rotator(ADS.tall, 'aspect-[138/345]')}
+    ${rotator(ADS.tall, 'aspect-[28/69]')}
     ${card(`<h2 class="font-display font-bold text-lg px-4 pt-3 pb-1">Quick Links</h2>
       <ul class="pb-2">${[['Live Matches', 'matches.html', ICON.live, 'bg-red-50 text-live'], ['Upcoming', 'matches.html?tab=Upcoming', ICON.calendar, 'bg-blue-50 text-blue-600'],
         ['Results', 'matches.html?tab=Recent', ICON.trophy, 'bg-amber-50 text-gold-600'], ['Games', 'games.html', ICON.game, 'bg-brand-50 text-brand-600']]
@@ -263,15 +262,15 @@ function renderSidebars() {
 
   const right = $('#right-sidebar');
   if (right) right.innerHTML = `
-    ${rotator(ADS.box, 'aspect-[300/204]')}
+    <div class="max-w-[300px] mx-auto">${rotator(ADS.box, 'aspect-[22/30]')}</div>
     ${card(`${sectionHead('Featured Games', 'games.html')}
-      <ul class="px-4 pb-3 divide-y divide-slate-100">${GAMES.filter(g => ['cricket-clash', 'roulette-royale', 'teen-patti', 'slots-bonanza'].includes(g.id)).map(g => `
+      <ul class="px-4 pb-3 divide-y divide-slate-100">${GAMES.filter(g => ['cricket-clash', 'football-clash', 'basketball-clash', 'game-clash'].includes(g.id)).map(g => `
         <li class="flex items-center gap-3 py-2.5">
           <a href="game-detail.html?id=${g.id}" class="shrink-0 w-16 h-16 rounded-lg overflow-hidden"><img src="${g.thumb}" alt="" class="w-full h-full object-cover hover:scale-110 transition duration-500" loading="lazy"></a>
-          <div class="flex-1 min-w-0"><a href="game-detail.html?id=${g.id}" class="block font-semibold text-sm text-slate-800 hover:text-brand-500">${g.title}</a><span class="text-xs text-slate-400">${g.cat === 'Cricket' ? 'Sports' : g.cat}</span></div>
+          <div class="flex-1 min-w-0"><a href="game-detail.html?id=${g.id}" class="block font-semibold text-sm text-slate-800 hover:text-brand-500">${g.title}</a><span class="text-xs text-slate-400">${g.cat}</span></div>
           <a href="game-detail.html?id=${g.id}" class="shrink-0 rounded-full px-4 py-1.5 text-xs font-bold text-navy-900 bg-gradient-to-r from-gold-300 via-gold-500 to-gold-600 hover:shadow-glow transition">Play</a>
         </li>`).join('')}</ul>`)}
-    <div class="md:sticky md:top-32">${rotator(ADS.tall2, 'aspect-[206/307]')}</div>`;
+    <div class="max-w-[280px] mx-auto">${rotator(ADS.tall2, 'aspect-[28/69]')}</div>`;
 }
 
 function renderFooter() {
@@ -284,16 +283,14 @@ function renderFooter() {
         <li><a class="hover:text-gold-400" href="series.html">Series</a></li><li><a class="hover:text-gold-400" href="news.html">News</a></li><li><a class="hover:text-gold-400" href="page.html?p=rankings">Rankings</a></li></ul></div>
       <div><h3 class="text-white font-display font-bold text-lg mb-3">Company</h3><ul class="space-y-2 text-sm">
         <li><a class="hover:text-gold-400" href="page.html?p=about">About</a></li><li><a class="hover:text-gold-400" href="page.html?p=contact">Contact</a></li>
-        <li><a class="hover:text-gold-400" href="page.html?p=terms">Terms</a></li><li><a class="hover:text-gold-400" href="page.html?p=privacy">Privacy</a></li>
-        <li><a class="hover:text-gold-400" href="page.html?p=responsible">Responsible Gaming</a></li></ul></div>
+        <li><a class="hover:text-gold-400" href="page.html?p=terms">Terms</a></li><li><a class="hover:text-gold-400" href="page.html?p=privacy">Privacy</a></li></ul></div>
       <div><h3 class="text-white font-display font-bold text-lg mb-3">Follow us</h3>
         <div class="flex gap-2 mb-5">${[['Facebook', 'M14 8h3V4h-3a4 4 0 0 0-4 4v2H8v4h2v8h4v-8h3l1-4h-4V8z'], ['X', 'M4 4l16 16M20 4L4 20'], ['Instagram', 'M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 5a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm5.5-1.5h.01'], ['YouTube', 'M3 8a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3zm7 1v6l5-3z'], ['Telegram', 'M21 4L3 11l6 2 2 6 3-4 5 4z']]
           .map(([n, d]) => `<a href="#" aria-label="${n}" class="w-11 h-11 rounded-full bg-white/10 hover:bg-gold-500 hover:text-navy-900 grid place-items-center transition"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="${d}"/></svg></a>`).join('')}</div>
-        <div class="flex items-center gap-3"><span class="w-11 h-11 rounded-full border-2 border-gold-500 text-gold-500 grid place-items-center font-bold text-sm">18+</span><span class="text-xs leading-snug">Play responsibly. Games are for users 18 years and older.</span></div>
       </div>
     </div>
     <div class="border-t border-white/15"><div class="max-w-[1600px] mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between gap-2 text-xs">
-      <span>© 2026 MY99 EXCH. All rights reserved.</span><span>Play responsibly. 18+ only.</span></div></div>
+      <span>© 2026 MY99 EXCH. All rights reserved.</span><span>Live scores · Commentary · News</span></div></div>
   </footer>
   <nav class="fixed bottom-0 inset-x-0 z-50 bg-white/95 backdrop-blur border-t border-slate-200 md:hidden" aria-label="Bottom">
     <div class="grid grid-cols-5">${[['Home', 'index.html', ICON.home, 'home'], ['Live', 'matches.html', ICON.live, 'matches'], ['Series', 'series.html', ICON.calendar, 'series'], ['Games', 'games.html', ICON.game, 'games'], ['News', 'news.html', ICON.news, 'news']]
@@ -301,10 +298,39 @@ function renderFooter() {
   </nav>`;
 }
 
+/* ---------- Floating WhatsApp button ---------- */
+const WHATSAPP = { number: '919999999999', text: 'Hi MY99 EXCH, I need help.' };
+function renderWhatsApp() {
+  const href = `https://wa.me/${WHATSAPP.number}?text=${encodeURIComponent(WHATSAPP.text)}`;
+  const wa = document.createElement('div');
+  wa.className = 'fixed right-4 bottom-20 md:bottom-6 md:right-6 z-[60] flex items-end gap-3';
+  wa.innerHTML = `
+    <div id="wa-bubble" hidden class="wa-pop relative max-w-[220px] rounded-2xl rounded-br-sm bg-white shadow-lift border border-slate-100 pl-4 pr-8 py-3 mb-2">
+      <button type="button" id="wa-close" class="absolute top-1 right-1 w-7 h-7 grid place-items-center text-slate-400 hover:text-slate-700" aria-label="Close chat message">&times;</button>
+      <p class="text-sm font-semibold text-slate-800">Need help?</p>
+      <a href="${href}" target="_blank" rel="noopener" class="text-xs text-[#128C7E] font-semibold hover:underline">Chat with us on WhatsApp →</a>
+    </div>
+    <a href="${href}" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" class="relative shrink-0 w-14 h-14 rounded-full bg-[#25D366] text-white grid place-items-center shadow-lift hover:scale-110 transition">
+      <span class="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-60" aria-hidden="true"></span>
+      <span class="absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-live ring-2 ring-white animate-livepulse" aria-hidden="true"></span>
+      <svg class="relative w-8 h-8" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.2-.5-.2-.7.1l-1 1.3c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.4 1.4.6 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+    </a>`;
+  document.body.appendChild(wa);
+  const bubble = $('#wa-bubble', wa);
+  let closed = false;
+  try { closed = sessionStorage.getItem('wa-closed') === '1'; } catch (e) {}
+  if (!closed) setTimeout(() => { bubble.hidden = false; }, 2500);
+  $('#wa-close', wa).addEventListener('click', () => {
+    bubble.hidden = true;
+    try { sessionStorage.setItem('wa-closed', '1'); } catch (e) {}
+  });
+}
+
 function initLayout() {
   renderHeader();
   renderSidebars();
   renderFooter();
+  renderWhatsApp();
 }
 initLayout();
 // page scripts render their content synchronously; pick up every rotator once they are done

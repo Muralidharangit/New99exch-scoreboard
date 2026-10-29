@@ -13,3 +13,7 @@ html { scroll-behavior: smooth; }
 .promo-dots .swiper-pagination-bullet { width: 8px; height: 8px; margin: 0 3px !important; background: #CBD5E1; opacity: 1; border-radius: 9999px; transition: width .3s, background-color .3s; }
 .promo-dots .swiper-pagination-bullet-active { width: 20px; background: #FFB800; }
 .swiper-button-disabled { opacity: .35; pointer-events: none; }
+
+/* WhatsApp chat bubble pop-in */
+@keyframes wa-pop{0%{opacity:0;transform:translateY(8px) scale(.85)}70%{transform:translateY(-2px) scale(1.03)}100%{opacity:1;transform:none}}
+.wa-pop:not([hidden]){animation:wa-pop .45s cubic-bezier(.2,.9,.3,1.2) both}
