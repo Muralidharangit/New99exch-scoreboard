@@ -1,19 +1,16 @@
-/* Static pages: about, contact, terms, privacy, responsible gaming, rankings */
+/* Static pages: about, contact, terms, privacy, rankings */
 
 const PAGES = {
   about: ['About MY99 EXCH', `<p>MY99 EXCH brings you fast, accurate live cricket scores, ball-by-ball commentary, full scorecards and the latest news from every major international, league and domestic competition.</p>
-    <p>Alongside the cricket, our games section offers a curated range of cricket-themed, casino, slots and card games — always with responsible-gaming tools built in.</p>`],
+    <p>Alongside the cricket, our games section offers free-to-play cricket games — batting, bowling, strategy and quizzes.</p>`],
   contact: ['Contact Us', `<p>We usually reply within 24 hours.</p>
     <form class="grid gap-3 max-w-lg mt-4" onsubmit="event.preventDefault();this.reset();toast('Thanks! Your message has been noted (demo).')">
       <label class="text-sm font-semibold text-slate-600">Name<input required class="mt-1 w-full rounded-lg border border-slate-200 px-3 min-h-[44px] focus:border-brand-500 outline-none"></label>
       <label class="text-sm font-semibold text-slate-600">Email<input required type="email" class="mt-1 w-full rounded-lg border border-slate-200 px-3 min-h-[44px] focus:border-brand-500 outline-none"></label>
       <label class="text-sm font-semibold text-slate-600">Message<textarea required rows="4" class="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 focus:border-brand-500 outline-none"></textarea></label>
       <button class="justify-self-start rounded-full bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 min-h-[44px] transition">Send message</button></form>`],
-  terms: ['Terms & Conditions', `<p>By using MY99 EXCH you agree to use the site for lawful purposes only. Scores and statistics are provided for information and may be delayed.</p><p>Games are available only to users aged 18 and above, where permitted by local law.</p>`],
+  terms: ['Terms & Conditions', `<p>By using MY99 EXCH you agree to use the site for lawful purposes only. Scores and statistics are provided for information and may be delayed.</p><p>All games on MY99 EXCH are free to play and involve no real money.</p>`],
   privacy: ['Privacy Policy', `<p>We collect only the information needed to run the service, such as preferences stored in your browser. We never sell personal data.</p><p>You can clear stored preferences at any time from your browser settings.</p>`],
-  responsible: ['Responsible Gaming', `<p>Gaming should always be fun. Set limits on time and money before you play, and never chase losses.</p>
-    <ul class="list-disc pl-5 space-y-1 text-slate-600"><li>Only play with money you can afford to lose.</li><li>Take regular breaks.</li><li>Use deposit limits and self-exclusion tools.</li><li>Seek help if gaming stops being enjoyable.</li></ul>
-    <p class="mt-4 flex items-center gap-3"><span class="w-11 h-11 rounded-full border-2 border-gold-500 text-gold-600 grid place-items-center font-bold text-sm">18+</span>Games on MY99 EXCH are strictly for adults.</p>`],
   rankings: ['Team Rankings', null]
 };
 const key = PAGES[qs('p')] ? qs('p') : 'about';

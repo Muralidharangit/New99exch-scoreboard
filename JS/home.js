@@ -17,10 +17,12 @@ function matchCard(m) {
       <a href="series.html?id=${m.series}&tab=${SERIES[m.series].table ? 'Points Table' : 'Stats'}" class="relative z-10 hover:text-brand-500 min-h-[32px] flex items-center">${SERIES[m.series].table ? 'Table' : 'Stats'}</a>
     </div></article>`;
 }
-const promoCard = () => `<a href="${ADS.card.href}" class="swiper-slide !h-auto relative block rounded-xl overflow-hidden shadow-card hover:-translate-y-1 hover:shadow-glow transition duration-300 bg-navy-900">
-  <img src="${ADS.card.img}" alt="${ADS.card.alt}" class="absolute inset-0 w-full h-full object-cover" loading="lazy"></a>`;
+/* promo slide: the portrait ad is shown whole over a blurred copy of itself */
+const promoCard = ad => `<a href="${ad.href}" class="swiper-slide !h-auto relative block rounded-xl overflow-hidden shadow-card hover:-translate-y-1 hover:shadow-glow transition duration-300 bg-navy-900">
+  <img src="${ad.img}" alt="" class="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-60" loading="lazy">
+  <img src="${ad.img}" alt="${ad.alt}" class="absolute inset-0 w-full h-full object-contain" loading="lazy"></a>`;
 
-const cards = carouselMatches.map((m, i) => matchCard(m) + ((i + 1) % 3 === 0 ? promoCard() : '')).join('');
+const cards = carouselMatches.map((m, i) => matchCard(m) + ((i + 1) % 3 === 0 ? promoCard(ADS.box[((i + 1) / 3 - 1) % ADS.box.length]) : '')).join('');
 
 const news = NEWS.slice(1, 5), featured = NEWS[0], more = NEWS.slice(5);
 const newsItem = (n, big) => `<li><a href="news.html?id=${n.id}" class="flex gap-3 py-3 group">
@@ -32,7 +34,7 @@ const quick = [
   ['India – Men', 'matches.html?team=IND', flag('IND', 'w-9 h-9'), 'hover:border-brand-500'],
   ['India – Women', 'matches.html?team=INDW', flag('INDW', 'w-9 h-9'), 'hover:border-brand-500'],
   ['Games', 'games.html', `<span class="w-9 h-9 rounded-full bg-violet-600 text-white grid place-items-center">${ICON.game}</span>`, 'bg-violet-50 border-violet-200 text-violet-700 hover:border-violet-500'],
-  ['Offers', 'games.html#offers', `<span class="w-9 h-9 rounded-full bg-orange-500 text-white grid place-items-center">${ICON.gift}</span>`, 'bg-orange-50 border-orange-200 text-orange-600 hover:border-orange-500']
+  ['Series', 'series.html', `<span class="w-9 h-9 rounded-full bg-orange-500 text-white grid place-items-center">${ICON.trophy}</span>`, 'bg-orange-50 border-orange-200 text-orange-600 hover:border-orange-500']
 ];
 
 function featuredGameCard(g) {
@@ -52,7 +54,7 @@ $('#content').innerHTML = `
     <button type="button" data-scroll="1" class="mc-next hidden md:grid absolute -right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white shadow-card place-items-center text-slate-700 hover:text-brand-500 hover:shadow-lift transition" aria-label="Next matches">${ICON.right}</button>
   </section>
 
-  ${rotator(ADS.strip, 'aspect-[3/1] sm:aspect-[594/86]', 'Promotions', true)}
+  ${rotator(ADS.strip, 'aspect-[6/1]', 'Promotions')}
 
   ${card(`<h2 class="font-display text-xl font-bold px-4 pt-3">Quick Access</h2>
     <div class="grid grid-cols-2 2xl:grid-cols-4 gap-3 p-4 pt-3">${quick.map(([l, h, ic, c]) => `<a href="${h}" class="flex items-center gap-2.5 rounded-full border border-slate-200 pl-1.5 pr-4 min-h-[48px] text-sm font-semibold text-slate-700 shadow-sm hover:shadow-card transition duration-300 ${c}">${ic}<span class="truncate">${l}</span></a>`).join('')}</div>`)}
